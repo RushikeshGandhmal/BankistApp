@@ -78,3 +78,15 @@ const displayMovements = function (movements) {
 };
 
 displayMovements(account1.movements);
+
+const createUsername = function (accs) {
+  accs.forEach((acc) => {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(" ")
+      .map((name) => name.charAt(0))
+      .join("");
+  });
+};
+
+createUsername(accounts);

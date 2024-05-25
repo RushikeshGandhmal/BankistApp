@@ -123,7 +123,7 @@ let currentAccount;
 btnLogin.addEventListener("click", (e) => {
   e.preventDefault(); // prevent from submitting
   const enteredUser = inputLoginUsername.value;
-  const enteredPin = Number(inputLoginPin.value);
+  const enteredPin = +inputLoginPin.value;
   if (!enteredUser || !enteredPin) return;
 
   accounts.forEach((account) => {
@@ -144,7 +144,7 @@ btnTransfer.addEventListener("click", (e) => {
   const receiverAcc = accounts.find(
     (acc) => acc.username === inputTransferTo.value
   );
-  const amount = Number(inputTransferAmount.value);
+  const amount = +inputTransferAmount.value;
 
   inputTransferTo.value = inputTransferAmount.value = "";
 
@@ -158,4 +158,20 @@ btnTransfer.addEventListener("click", (e) => {
     receiverAcc.movements.push(amount);
     updateUI(currentAccount);
   }
+});
+
+btnClose.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  if (
+    currentAccount.username === inputCloseUsername.value &&
+    currentAccount.pin === +inputClosePin.value
+  ) {
+    const accountIndex = accounts.findIndex(
+      (acc) => acc.username === enteredUsername
+    );
+    accounts.splice(accountIndex, 1);
+    containerApp.style.opacity = 0;
+  }
+  inputCloseUsername.value = inputClosePin.value = "";
 });

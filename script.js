@@ -79,3 +79,10 @@ console.log(logo.getAttribute("src"));
 const link = document.querySelector(".nav__link--btn");
 console.log(link.href);
 console.log(link.getAttribute("href"));
+
+const btnScrollTo = document.querySelector(".btn--scroll-to");
+
+btnScrollTo.addEventListener("click", function () {
+  const section = document.querySelector("#section--1");
+  section.scrollIntoView({ behavior: "smooth" });
+});

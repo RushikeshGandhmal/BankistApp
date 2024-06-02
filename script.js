@@ -32,7 +32,6 @@ document.addEventListener("keydown", function (e) {
 
 const header = document.querySelector(".header");
 const allButtons = document.getElementsByTagName("button");
-console.log(allButtons);
 
 const message = document.createElement("div");
 message.classList.add("cookie-message");
@@ -44,7 +43,6 @@ header.append(message);
 document
   .querySelector(".btn--close-cookie")
   .addEventListener("click", function () {
-    console.log("ruco");
     message.remove(); // new
     // message.parentElement.removeChild(message);
   });

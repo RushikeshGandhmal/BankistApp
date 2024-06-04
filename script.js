@@ -98,3 +98,10 @@ const alertH1 = function (e) {
 h1.addEventListener("mouseenter", alertH1);
 
 setTimeout(() => h1.removeEventListener("mouseenter", alertH1), 3000);
+
+document.querySelector(".nav__links").addEventListener("click", function (e) {
+  e.preventDefault();
+  const id = e.target.getAttribute("href");
+  const section = document.querySelector(id);
+  section.scrollIntoView({ behavior: "smooth" });
+});

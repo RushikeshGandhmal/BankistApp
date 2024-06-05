@@ -95,7 +95,7 @@ const alertH1 = function (e) {
   alert("addEventListener: Great! You are reading the heading :D");
 };
 
-h1.addEventListener("mouseenter", alertH1);
+// h1.addEventListener("mouseenter", alertH1);
 
 setTimeout(() => h1.removeEventListener("mouseenter", alertH1), 3000);
 
@@ -105,3 +105,30 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
   const section = document.querySelector(id);
   section.scrollIntoView({ behavior: "smooth" });
 });
+
+// DOM Traversing
+
+// Going downwards: child
+console.log(h1.querySelectorAll(".highlight"));
+console.log(h1.childNodes); // NodeList
+console.log(h1.children); // HTMLCollection
+
+h1.firstElementChild.style.color = "white";
+console.log(h1.firstChild);
+h1.lastElementChild.style.color = "orangered";
+
+// Going upwards: parent
+console.log(h1.parentElement);
+console.log(h1.parentNode);
+
+h1.closest(".header").style.background = "var(--gradient-secondary)";
+
+// Going sideways: siblings
+console.log(h1.previousElementSibling);
+console.log(h1.nextElementSibling);
+
+console.log(h1.previousSibling);
+console.log(h1.nextSibling);
+
+// if we want to get all sibling then select parent and then all childrens
+console.log(h1.parentElement.children);
